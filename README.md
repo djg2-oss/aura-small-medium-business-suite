@@ -4,22 +4,24 @@ Unified website/app foundation for smaller to medium businesses, websites, and a
 
 **Executive-operated.** Fast, light, conversion-focused sites that stay efficient on the user’s computer under AuraXur OS simulation functions. Hybrid local + host as needed.
 
+**Last executive update: 2026-09-22** — Canonical knowledge in workspace `G2P_AURA_ECOSYSTEM_KNOWLEDGE.md`.
+
 ## Purpose
 Quick professional presence for freelancers, small studios, local services, coaches, artists, and early-stage products. Clear growth path into Medium-Large Suite and full G2PTECHOFFICE / AuraG2P Music Studio Platform.
 
 ## Features
 - Clean, modern Tailwind UI (dark aesthetic matching G2P brand)
 - Template categories ready for Codeless Builder (up to 10 best patterns):
-  - Music Artist / Lessons
-  - Service Business
-  - Portfolio / Creative
-  - Coaching / Authority
-  - Landing + Lead gen
-  - Local Business
-  - Freelancer Hub
-  - Store Lite
-  - Content Starter
-  - Education Lite
+  1. Music Artist / Lessons
+  2. Service Business
+  3. Portfolio / Creative
+  4. Coaching / Authority
+  5. Landing + Lead gen
+  6. Local Business
+  7. Freelancer Hub
+  8. Store Lite
+  9. Content Starter
+  10. Education Lite
 - File/folder structure awareness for future deploys
 - Multi-simulation shared memory notes for latency reduction
 - Direct growth path to Medium-Large Suite and full complex ops
