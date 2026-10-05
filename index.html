@@ -1,101 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Aura small to medium suite</title>
-<style>
-
-:root { --bg:#0c0f14; --panel:#141a22; --line:#2a3442; --ink:#e8eef6; --muted:#93a0b3; --gold:#d7b56d; --teal:#6ec8c4; --danger:#e07a7a; --ok:#7dcea0; }
-* { box-sizing:border-box; }
-body { margin:0; font-family: "Segoe UI", Inter, system-ui, sans-serif; background:var(--bg); color:var(--ink); }
-button, input, select, textarea { font:inherit; color:inherit; }
-button { cursor:pointer; }
-a { color:var(--gold); }
-
-:root { --gold:#6ec8c4; }
-header.top { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; padding:22px 28px; border-bottom:1px solid var(--line); background:#10151c; }
-header.top h1 { margin:0; font-size:22px; letter-spacing:.04em; }
-header.top p { margin:6px 0 0; color:var(--muted); max-width:760px; }
-.badge { border:1px solid var(--gold); color:var(--gold); padding:4px 10px; border-radius:999px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
-main { display:grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 92px); }
-nav { border-right:1px solid var(--line); padding:14px; background:#0e131a; }
-nav button { display:block; width:100%; text-align:left; background:transparent; border:1px solid transparent; color:var(--ink); padding:10px 12px; border-radius:8px; margin-bottom:6px; }
-nav button.active, nav button:hover { border-color:var(--line); background:#1b2430; }
-section.view { display:none; padding:22px 26px 40px; }
-section.view.active { display:block; }
-.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:14px; }
-.card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
-.card h3 { margin:0 0 6px; font-size:16px; }
-.card p, .muted { color:var(--muted); font-size:13px; line-height:1.45; }
-.row { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
-input, select, textarea { background:#0d1218; border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
-.btn { background:var(--gold); color:#1a1408; border:0; border-radius:8px; padding:8px 12px; font-weight:600; }
-.btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
-.tree, .log, pre.out { background:#0b1016; border:1px solid var(--line); border-radius:10px; padding:12px; font-family: ui-monospace, Consolas, monospace; font-size:12.5px; white-space:pre-wrap; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
-th, td { border-bottom:1px solid var(--line); text-align:left; padding:8px; }
-.kpi { font-size:22px; color:var(--gold); }
-video, audio { width:100%; margin-top:8px; background:#000; border-radius:8px; }
-@media (max-width:860px) { main { grid-template-columns:1fr; } nav { display:flex; gap:6px; overflow:auto; } nav button { width:auto; white-space:nowrap; } }
-</style>
-</head>
-<body>
-<header class="top">
-  <div>
-    <h1>Aura small to medium suite</h1>
-    <p>One site. Ten templates for smaller and medium businesses.</p>
-  </div>
-  <div class="badge">G2P · djg2-oss</div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Small to Medium Suite</title><style>
+:root{--bg:#0c0e12;--panel:#141820;--line:#2a3140;--ink:#e8e4da;--muted:#9a9386;--gold:#c6a15b;--teal:#6fbfb0;--danger:#c46b6b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Segoe UI",system-ui,sans-serif}
+a{color:var(--gold);text-decoration:none}header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
+h1{font-size:20px;margin:0;letter-spacing:.04em}h2{font-size:16px;margin:0 0 8px}.muted{color:var(--muted)}
+.wrap{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}
+nav button,button,.chip{background:#1c2230;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
+nav{padding:14px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+main{padding:18px} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px;font-size:15px}.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+input,select,textarea{background:#0f131a;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;width:100%}
+pre,textarea.log{font:12px/1.4 ui-monospace,monospace;white-space:pre-wrap}
+.player{background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+video{width:100%;max-height:360px;background:#000;display:block}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid var(--line);padding:6px;text-align:left;font-size:13px}
+</style></head><body>
+<header><div><div class="tag">G2P Technologies</div><h1>Small to Medium Suite</h1><div class="muted">One site for ten local and solo business types</div></div>
+<div class="row"><a href="../index.html">Command</a><a href="../office/index.html">Office</a><a href="../sm/index.html">Small–Medium</a><a href="../ml/index.html">Medium–Large</a><a href="../builder/index.html">Builder</a></div>
 </header>
-<main>
-
-<nav>
-  <button class="active" data-id="gallery">Templates</button>
-  <button data-id="preview">Preview</button>
-  <button data-id="ops">Operate</button>
-</nav>
-<div>
-<section class="view active" id="gallery"><h2>Ten small-medium templates</h2><div class="grid"><div class="card"><h3>Solo consultant</h3><p>One offer, proof, booking.</p><div class="muted">Pages: Home, Offer, Proof, Book</div><button class="btn" data-open="Solo consultant">Open template</button></div>
-<div class="card"><h3>Cafe</h3><p>Menu, hours, local order note.</p><div class="muted">Pages: Home, Menu, Hours, Visit</div><button class="btn" data-open="Cafe">Open template</button></div>
-<div class="card"><h3>Boutique retail</h3><p>Collections and hold request.</p><div class="muted">Pages: Home, Shop, Story, Hold</div><button class="btn" data-open="Boutique retail">Open template</button></div>
-<div class="card"><h3>Home services</h3><p>Service area and job request.</p><div class="muted">Pages: Home, Services, Area, Request</div><button class="btn" data-open="Home services">Open template</button></div>
-<div class="card"><h3>Fitness studio</h3><p>Classes and intro pass.</p><div class="muted">Pages: Home, Schedule, Coaches, Pass</div><button class="btn" data-open="Fitness studio">Open template</button></div>
-<div class="card"><h3>Photographer</h3><p>Selected work and inquiry.</p><div class="muted">Pages: Home, Work, About, Inquire</div><button class="btn" data-open="Photographer">Open template</button></div>
-<div class="card"><h3>Tutor</h3><p>Subjects and session request.</p><div class="muted">Pages: Home, Subjects, Method, Book</div><button class="btn" data-open="Tutor">Open template</button></div>
-<div class="card"><h3>Salon</h3><p>Services and preferred time.</p><div class="muted">Pages: Home, Services, Team, Book</div><button class="btn" data-open="Salon">Open template</button></div>
-<div class="card"><h3>Starter agency</h3><p>Three packages, no bloat.</p><div class="muted">Pages: Home, Work, Packages, Contact</div><button class="btn" data-open="Starter agency">Open template</button></div>
-<div class="card"><h3>Wellness room</h3><p>Visit info and intake.</p><div class="muted">Pages: Home, Care, Visit, Intake</div><button class="btn" data-open="Wellness room">Open template</button></div></div></section>
-<section class="view" id="preview"><h2 id="pvTitle">Select a template</h2><div class="card" id="pv"></div></section>
-<section class="view" id="ops"><h2>Operate</h2><p class="muted">Booking, lead, or order captured locally for this tier.</p><div class="row"><input id="lead" placeholder="name or request"/><button class="btn" id="saveLead">Save</button></div><pre class="out" id="leads"></pre></section>
-</div>
-
-</main>
-<script>
-
-const ITEMS = [["Solo consultant", "One offer, proof, booking.", "Home, Offer, Proof, Book"], ["Cafe", "Menu, hours, local order note.", "Home, Menu, Hours, Visit"], ["Boutique retail", "Collections and hold request.", "Home, Shop, Story, Hold"], ["Home services", "Service area and job request.", "Home, Services, Area, Request"], ["Fitness studio", "Classes and intro pass.", "Home, Schedule, Coaches, Pass"], ["Photographer", "Selected work and inquiry.", "Home, Work, About, Inquire"], ["Tutor", "Subjects and session request.", "Home, Subjects, Method, Book"], ["Salon", "Services and preferred time.", "Home, Services, Team, Book"], ["Starter agency", "Three packages, no bloat.", "Home, Work, Packages, Contact"], ["Wellness room", "Visit info and intake.", "Home, Care, Visit, Intake"]];
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  document.querySelectorAll("section.view").forEach(s=>s.classList.toggle("active", s.id===b.dataset.id));
-});
-document.querySelectorAll("[data-open]").forEach(btn=>btn.onclick=()=>{
-  const name=btn.dataset.open;
-  const item=ITEMS.find(x=>x[0]===name);
-  document.getElementById("pvTitle").textContent=name;
-  document.getElementById("pv").innerHTML = `<h3>${name}</h3><p>${item[1]}</p><p class="muted">Included pages: ${item[2]}</p><p>Tier: small-medium. Use the codeless builder to clone this into a client site.</p>`;
-  document.querySelector('nav button[data-id="preview"]').click();
-});
-const KEY="small-medium-leads";
-const box=document.getElementById("leads");
-let leads=JSON.parse(localStorage.getItem(KEY)||"[]");
-function draw(){ box.textContent=leads.map(x=>"• "+x).join("\n")||"(none)"; }
-draw();
-document.getElementById("saveLead").onclick=()=>{
-  const v=document.getElementById("lead").value.trim(); if(!v) return;
-  leads.push(v); localStorage.setItem(KEY, JSON.stringify(leads)); document.getElementById("lead").value=""; draw();
-};
-
-</script>
-</body>
-</html>
+<div class="wrap"><nav><button>Templates</button><a href="../builder/index.html">Open in builder</a></nav><main><section><p class="muted">Ten templates. One app. Export a static page, then refine in the builder.</p><div class="grid"><article class="card"><div class="tag">Template 01</div><h3>Solo studio</h3><p>Booking, sample reel, lesson pack</p><p class="muted">Local service, one operator</p><button data-i="0">Use template</button></article><article class="card"><div class="tag">Template 02</div><h3>Cafe</h3><p>Menu, hours, catering note</p><p class="muted">Single location hospitality</p><button data-i="1">Use template</button></article><article class="card"><div class="tag">Template 03</div><h3>Boutique</h3><p>Lookbook, product grid, pickup</p><p class="muted">Small retail</p><button data-i="2">Use template</button></article><article class="card"><div class="tag">Template 04</div><h3>Consultant</h3><p>Offer, case notes, intake</p><p class="muted">Professional service</p><button data-i="3">Use template</button></article><article class="card"><div class="tag">Template 05</div><h3>Salon</h3><p>Services, staff, book link</p><p class="muted">Appointment business</p><button data-i="4">Use template</button></article><article class="card"><div class="tag">Template 06</div><h3>Coach</h3><p>Programs, results, schedule</p><p class="muted">Fitness or music coach</p><button data-i="5">Use template</button></article><article class="card"><div class="tag">Template 07</div><h3>Agent</h3><p>Listings, areas, contact</p><p class="muted">Real estate solo</p><button data-i="6">Use template</button></article><article class="card"><div class="tag">Template 08</div><h3>Chapter</h3><p>Mission, events, donate</p><p class="muted">Small nonprofit</p><button data-i="7">Use template</button></article><article class="card"><div class="tag">Template 09</div><h3>Clinic desk</h3><p>Hours, forms, visit prep</p><p class="muted">Front desk only, no medical advice</p><button data-i="8">Use template</button></article><article class="card"><div class="tag">Template 10</div><h3>Trades</h3><p>Services, service area, quote</p><p class="muted">Contractor</p><button data-i="9">Use template</button></article></div><div class="card"><h3>Working preview</h3><pre id="out">Select a template.</pre><button id="exp">Export static site</button></div></section></main></div>
+<script>const items=[["Solo studio", "Booking, sample reel, lesson pack", "Local service, one operator"], ["Cafe", "Menu, hours, catering note", "Single location hospitality"], ["Boutique", "Lookbook, product grid, pickup", "Small retail"], ["Consultant", "Offer, case notes, intake", "Professional service"], ["Salon", "Services, staff, book link", "Appointment business"], ["Coach", "Programs, results, schedule", "Fitness or music coach"], ["Agent", "Listings, areas, contact", "Real estate solo"], ["Chapter", "Mission, events, donate", "Small nonprofit"], ["Clinic desk", "Hours, forms, visit prep", "Front desk only, no medical advice"], ["Trades", "Services, service area, quote", "Contractor"]];
+const $=s=>document.querySelector(s); let cur=null;
+document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{cur=items[+b.dataset.i]; $('#out').textContent=cur[0]+'\n'+cur[1]+'\n'+cur[2]+'\n\nPages: home, offer, proof, contact\nBlocks: hero, services, proof, faq, footer';});
+$('#exp').onclick=()=>{ if(!cur) return; const html='<!doctype html><meta charset=utf-8><title>'+cur[0]+'</title><h1>'+cur[0]+'</h1><p>'+cur[1]+'</p>'; const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download=cur[0].toLowerCase().replace(/\s+/g,'-')+'.html'; a.click(); };
+</script></body></html>
