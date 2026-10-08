@@ -1,3 +1,3 @@
-# Aura Line SMB
-Small to medium website/app. Open index.html.
-Canonical note shared with the office repo. Updated 2026-10-05.
+# Aura G2P
+
+Operating surface updated 2026-10-07. Open index.html. Canon note: GROK_WORKSPACE_NOTE.md.

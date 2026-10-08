@@ -1,29 +1,80 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Small to Medium Suite</title><style>
-:root{--bg:#0c0e12;--panel:#141820;--line:#2a3140;--ink:#e8e4da;--muted:#9a9386;--gold:#c6a15b;--teal:#6fbfb0;--danger:#c46b6b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Segoe UI",system-ui,sans-serif}
-a{color:var(--gold);text-decoration:none}header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
-h1{font-size:20px;margin:0;letter-spacing:.04em}h2{font-size:16px;margin:0 0 8px}.muted{color:var(--muted)}
-.wrap{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}
-nav button,button,.chip{background:#1c2230;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
-nav{padding:14px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-main{padding:18px} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
-.card h3{margin:0 0 6px;font-size:15px}.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-input,select,textarea{background:#0f131a;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;width:100%}
-pre,textarea.log{font:12px/1.4 ui-monospace,monospace;white-space:pre-wrap}
-.player{background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-video{width:100%;max-height:360px;background:#000;display:block}
-.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid var(--line);padding:6px;text-align:left;font-size:13px}
-</style></head><body>
-<header><div><div class="tag">G2P Technologies</div><h1>Small to Medium Suite</h1><div class="muted">One site for ten local and solo business types</div></div>
-<div class="row"><a href="../index.html">Command</a><a href="../office/index.html">Office</a><a href="../sm/index.html">Small–Medium</a><a href="../ml/index.html">Medium–Large</a><a href="../builder/index.html">Builder</a></div>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>G2P Small–Medium</title>
+<style>
+:root { --bg:#0c0f14; --panel:#151b24; --line:#2a3444; --text:#e8edf5; --muted:#93a0b5; --accent:#8fb7c9; --ok:#7dcea0; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Georgia, "Iowan Old Style", serif; background:radial-gradient(1200px 500px at 10% -10%, #1c2838, var(--bg)); color:var(--text); }
+header { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; padding:28px 32px 12px; border-bottom:1px solid var(--line); }
+h1 { font-weight:500; letter-spacing:.04em; margin:0; font-size:28px; }
+.kicker { color:var(--accent); letter-spacing:.18em; text-transform:uppercase; font-size:11px; font-family:ui-sans-serif, system-ui; }
+nav button, .btn { background:#1c2533; color:var(--text); border:1px solid var(--line); border-radius:999px; padding:8px 14px; cursor:pointer; font-family:ui-sans-serif, system-ui; }
+nav button.on, .btn.primary { background:var(--accent); color:#1a1408; border-color:var(--accent); }
+main { padding:22px 32px 64px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; }
+.card h3 { margin:0 0 8px; font-size:18px; }
+.muted { color:var(--muted); font-family:ui-sans-serif, system-ui; font-size:13px; line-height:1.45; }
+input, select, textarea { width:100%; background:#0e141c; color:var(--text); border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-family:ui-sans-serif, system-ui; }
+textarea { min-height:90px; }
+label { display:block; font-size:12px; color:var(--muted); margin:8px 0 4px; font-family:ui-sans-serif, system-ui; }
+pre, .mono { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; white-space:pre-wrap; }
+.player { background:#090d13; border:1px solid var(--line); border-radius:16px; padding:12px; }
+video, audio { width:100%; }
+.tag { display:inline-block; margin:4px 4px 0 0; padding:4px 8px; border-radius:999px; border:1px solid var(--line); font-size:12px; font-family:ui-sans-serif, system-ui; }
+section { display:none; }
+section.on { display:block; }
+table { width:100%; border-collapse:collapse; font-family:ui-sans-serif, system-ui; font-size:13px; }
+td, th { border-bottom:1px solid var(--line); text-align:left; padding:8px; }
+</style>
+</head>
+<body>
+<header>
+  <div><div class="kicker">One site for smaller operations</div><h1>G2P Small–Medium</h1></div>
+  <nav id="nav"></nav>
 </header>
-<div class="wrap"><nav><button>Templates</button><a href="../builder/index.html">Open in builder</a></nav><main><section><p class="muted">Ten templates. One app. Export a static page, then refine in the builder.</p><div class="grid"><article class="card"><div class="tag">Template 01</div><h3>Solo studio</h3><p>Booking, sample reel, lesson pack</p><p class="muted">Local service, one operator</p><button data-i="0">Use template</button></article><article class="card"><div class="tag">Template 02</div><h3>Cafe</h3><p>Menu, hours, catering note</p><p class="muted">Single location hospitality</p><button data-i="1">Use template</button></article><article class="card"><div class="tag">Template 03</div><h3>Boutique</h3><p>Lookbook, product grid, pickup</p><p class="muted">Small retail</p><button data-i="2">Use template</button></article><article class="card"><div class="tag">Template 04</div><h3>Consultant</h3><p>Offer, case notes, intake</p><p class="muted">Professional service</p><button data-i="3">Use template</button></article><article class="card"><div class="tag">Template 05</div><h3>Salon</h3><p>Services, staff, book link</p><p class="muted">Appointment business</p><button data-i="4">Use template</button></article><article class="card"><div class="tag">Template 06</div><h3>Coach</h3><p>Programs, results, schedule</p><p class="muted">Fitness or music coach</p><button data-i="5">Use template</button></article><article class="card"><div class="tag">Template 07</div><h3>Agent</h3><p>Listings, areas, contact</p><p class="muted">Real estate solo</p><button data-i="6">Use template</button></article><article class="card"><div class="tag">Template 08</div><h3>Chapter</h3><p>Mission, events, donate</p><p class="muted">Small nonprofit</p><button data-i="7">Use template</button></article><article class="card"><div class="tag">Template 09</div><h3>Clinic desk</h3><p>Hours, forms, visit prep</p><p class="muted">Front desk only, no medical advice</p><button data-i="8">Use template</button></article><article class="card"><div class="tag">Template 10</div><h3>Trades</h3><p>Services, service area, quote</p><p class="muted">Contractor</p><button data-i="9">Use template</button></article></div><div class="card"><h3>Working preview</h3><pre id="out">Select a template.</pre><button id="exp">Export static site</button></div></section></main></div>
-<script>const items=[["Solo studio", "Booking, sample reel, lesson pack", "Local service, one operator"], ["Cafe", "Menu, hours, catering note", "Single location hospitality"], ["Boutique", "Lookbook, product grid, pickup", "Small retail"], ["Consultant", "Offer, case notes, intake", "Professional service"], ["Salon", "Services, staff, book link", "Appointment business"], ["Coach", "Programs, results, schedule", "Fitness or music coach"], ["Agent", "Listings, areas, contact", "Real estate solo"], ["Chapter", "Mission, events, donate", "Small nonprofit"], ["Clinic desk", "Hours, forms, visit prep", "Front desk only, no medical advice"], ["Trades", "Services, service area, quote", "Contractor"]];
-const $=s=>document.querySelector(s); let cur=null;
-document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{cur=items[+b.dataset.i]; $('#out').textContent=cur[0]+'\n'+cur[1]+'\n'+cur[2]+'\n\nPages: home, offer, proof, contact\nBlocks: hero, services, proof, faq, footer';});
-$('#exp').onclick=()=>{ if(!cur) return; const html='<!doctype html><meta charset=utf-8><title>'+cur[0]+'</title><h1>'+cur[0]+'</h1><p>'+cur[1]+'</p>'; const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download=cur[0].toLowerCase().replace(/\s+/g,'-')+'.html'; a.click(); };
-</script></body></html>
+<main>
+<section data-tab="Operate">
+  <div class="grid">
+    <article class="card"><h3>Small to medium</h3><p class="muted">One site. Booking, offer, proof, and a simple file drawer. No multi-tenant machinery.</p></article>
+    <article class="card"><h3>Lead</h3><label>Name</label><input id="lead" placeholder="Client"/><label>Need</label><input id="need" placeholder="Session or service"/><p><button class="btn primary" onclick="saveLead()">Save lead</button></p><pre id="leads"></pre></article>
+  </div>
+</section>
+<section data-tab="Templates">
+  <div class="grid"><article class='card'><h3>Local service</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Call now</span><span class='tag'>Service menu</span><span class='tag'>Quote in a day</span><span class='tag'>Reviews</span><span class='tag'>Service area map</span><span class='tag'>Crew page</span><span class='tag'>Seasonal special</span><span class='tag'>Booking</span><span class='tag'>FAQ</span><span class='tag'>Guarantee</span></article><article class='card'><h3>Studio and creator</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Book a session</span><span class='tag'>Packages</span><span class='tag'>Portfolio</span><span class='tag'>Rates</span><span class='tag'>Gear list</span><span class='tag'>Client portal</span><span class='tag'>Release form</span><span class='tag'>Calendar</span><span class='tag'>Testimonials</span><span class='tag'>Contact</span></article><article class='card'><h3>Shop</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Featured products</span><span class='tag'>Categories</span><span class='tag'>Pickup</span><span class='tag'>Hours</span><span class='tag'>About the owner</span><span class='tag'>Gift cards</span><span class='tag'>Newsletter</span><span class='tag'>Sale rail</span><span class='tag'>Policies</span><span class='tag'>Visit us</span></article><article class='card'><h3>Practice</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Book consult</span><span class='tag'>Services</span><span class='tag'>Bio</span><span class='tag'>Fees</span><span class='tag'>New client form</span><span class='tag'>Location</span><span class='tag'>FAQ</span><span class='tag'>Resources</span><span class='tag'>Privacy</span><span class='tag'>Contact</span></article><article class='card'><h3>Food</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Menu</span><span class='tag'>Order ahead</span><span class='tag'>Catering</span><span class='tag'>Hours</span><span class='tag'>Story</span><span class='tag'>Events</span><span class='tag'>Allergens</span><span class='tag'>Gallery</span><span class='tag'>Reservations</span><span class='tag'>Jobs</span></article></div>
+</section>
+<section data-tab="Pages">
+  <article class="card"><h3>Page set</h3><p class="muted">Home, services, proof, book, contact. That is the whole SMB site. Add a shop only if they sell goods.</p><button class="btn" onclick="dl('smb-sitemap.txt','/\n/services\n/proof\n/book\n/contact\n')">Download sitemap</button></article>
+</section>
+<script>
+const leads = JSON.parse(localStorage.getItem('smb-leads')||'[]');
+function paint() { document.getElementById('leads').textContent = leads.map(l=>l.n+' — '+l.need).join('\n')||'None yet'; }
+function saveLead() { leads.push({n:lead.value, need:need.value}); localStorage.setItem('smb-leads', JSON.stringify(leads)); paint(); }
+paint();
+</script>
+</main>
+<script>
+const nav = document.getElementById('nav');
+const sections = [...document.querySelectorAll('main section')];
+sections.forEach((s,i) => {
+  const b = document.createElement('button');
+  b.textContent = s.dataset.tab;
+  if(i===0) { b.classList.add('on'); s.classList.add('on'); }
+  b.onclick = () => {
+    sections.forEach(x => x.classList.remove('on'));
+    [...nav.children].forEach(x => x.classList.remove('on'));
+    s.classList.add('on'); b.classList.add('on');
+  };
+  nav.appendChild(b);
+});
+function dl(name, text, type='text/plain') {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name; a.click();
+}
+</script>
+</body>
+</html>
