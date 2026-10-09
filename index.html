@@ -1,80 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>G2P Small–Medium</title>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>G2P Small–Medium Suite</title>
 <style>
-:root { --bg:#0c0f14; --panel:#151b24; --line:#2a3444; --text:#e8edf5; --muted:#93a0b5; --accent:#8fb7c9; --ok:#7dcea0; }
-* { box-sizing:border-box; }
-body { margin:0; font-family:Georgia, "Iowan Old Style", serif; background:radial-gradient(1200px 500px at 10% -10%, #1c2838, var(--bg)); color:var(--text); }
-header { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; padding:28px 32px 12px; border-bottom:1px solid var(--line); }
-h1 { font-weight:500; letter-spacing:.04em; margin:0; font-size:28px; }
-.kicker { color:var(--accent); letter-spacing:.18em; text-transform:uppercase; font-size:11px; font-family:ui-sans-serif, system-ui; }
-nav button, .btn { background:#1c2533; color:var(--text); border:1px solid var(--line); border-radius:999px; padding:8px 14px; cursor:pointer; font-family:ui-sans-serif, system-ui; }
-nav button.on, .btn.primary { background:var(--accent); color:#1a1408; border-color:var(--accent); }
-main { padding:22px 32px 64px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px; }
-.card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; }
-.card h3 { margin:0 0 8px; font-size:18px; }
-.muted { color:var(--muted); font-family:ui-sans-serif, system-ui; font-size:13px; line-height:1.45; }
-input, select, textarea { width:100%; background:#0e141c; color:var(--text); border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-family:ui-sans-serif, system-ui; }
-textarea { min-height:90px; }
-label { display:block; font-size:12px; color:var(--muted); margin:8px 0 4px; font-family:ui-sans-serif, system-ui; }
-pre, .mono { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; white-space:pre-wrap; }
-.player { background:#090d13; border:1px solid var(--line); border-radius:16px; padding:12px; }
-video, audio { width:100%; }
-.tag { display:inline-block; margin:4px 4px 0 0; padding:4px 8px; border-radius:999px; border:1px solid var(--line); font-size:12px; font-family:ui-sans-serif, system-ui; }
-section { display:none; }
-section.on { display:block; }
-table { width:100%; border-collapse:collapse; font-family:ui-sans-serif, system-ui; font-size:13px; }
-td, th { border-bottom:1px solid var(--line); text-align:left; padding:8px; }
-</style>
-</head>
-<body>
-<header>
-  <div><div class="kicker">One site for smaller operations</div><h1>G2P Small–Medium</h1></div>
-  <nav id="nav"></nav>
-</header>
-<main>
-<section data-tab="Operate">
-  <div class="grid">
-    <article class="card"><h3>Small to medium</h3><p class="muted">One site. Booking, offer, proof, and a simple file drawer. No multi-tenant machinery.</p></article>
-    <article class="card"><h3>Lead</h3><label>Name</label><input id="lead" placeholder="Client"/><label>Need</label><input id="need" placeholder="Session or service"/><p><button class="btn primary" onclick="saveLead()">Save lead</button></p><pre id="leads"></pre></article>
-  </div>
-</section>
-<section data-tab="Templates">
-  <div class="grid"><article class='card'><h3>Local service</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Call now</span><span class='tag'>Service menu</span><span class='tag'>Quote in a day</span><span class='tag'>Reviews</span><span class='tag'>Service area map</span><span class='tag'>Crew page</span><span class='tag'>Seasonal special</span><span class='tag'>Booking</span><span class='tag'>FAQ</span><span class='tag'>Guarantee</span></article><article class='card'><h3>Studio and creator</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Book a session</span><span class='tag'>Packages</span><span class='tag'>Portfolio</span><span class='tag'>Rates</span><span class='tag'>Gear list</span><span class='tag'>Client portal</span><span class='tag'>Release form</span><span class='tag'>Calendar</span><span class='tag'>Testimonials</span><span class='tag'>Contact</span></article><article class='card'><h3>Shop</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Featured products</span><span class='tag'>Categories</span><span class='tag'>Pickup</span><span class='tag'>Hours</span><span class='tag'>About the owner</span><span class='tag'>Gift cards</span><span class='tag'>Newsletter</span><span class='tag'>Sale rail</span><span class='tag'>Policies</span><span class='tag'>Visit us</span></article><article class='card'><h3>Practice</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Book consult</span><span class='tag'>Services</span><span class='tag'>Bio</span><span class='tag'>Fees</span><span class='tag'>New client form</span><span class='tag'>Location</span><span class='tag'>FAQ</span><span class='tag'>Resources</span><span class='tag'>Privacy</span><span class='tag'>Contact</span></article><article class='card'><h3>Food</h3><p class='muted'>Ten operating templates. Pick one, clone the folder contract, ship.</p><span class='tag'>Menu</span><span class='tag'>Order ahead</span><span class='tag'>Catering</span><span class='tag'>Hours</span><span class='tag'>Story</span><span class='tag'>Events</span><span class='tag'>Allergens</span><span class='tag'>Gallery</span><span class='tag'>Reservations</span><span class='tag'>Jobs</span></article></div>
-</section>
-<section data-tab="Pages">
-  <article class="card"><h3>Page set</h3><p class="muted">Home, services, proof, book, contact. That is the whole SMB site. Add a shop only if they sell goods.</p><button class="btn" onclick="dl('smb-sitemap.txt','/\n/services\n/proof\n/book\n/contact\n')">Download sitemap</button></article>
-</section>
+body{margin:0;font-family:system-ui;background:#f6f3ee;color:#1c1915}
+header{padding:18px 24px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #ddd}
+h1{margin:0;font-size:22px} select,button{padding:8px 10px}
+.wrap{display:grid;grid-template-columns:280px 1fr;min-height:80vh}
+aside{padding:12px;border-right:1px solid #ddd} .item{padding:10px;border:1px solid #e4e0d8;margin:6px 0;cursor:pointer;background:#fff}
+.item.on{border-color:#8a6a32}
+main{padding:22px} .hero{padding:28px;background:#fff;border:1px solid #e4e0d8}
+.player{width:100%;max-width:640px;background:#111}
+</style></head><body>
+<header><div><div>G2P · small to medium</div><h1 id="title">Studio shop</h1></div>
+<div><select id="pick"></select></div></header>
+<div class="wrap"><aside id="list"></aside><main><div class="hero" id="hero"></div>
+<video class="player" controls id="vid"></video>
+<p><input type="file" accept="video/*" id="vf"/> Explicit player: local file, native controls.</p>
+</main></div>
 <script>
-const leads = JSON.parse(localStorage.getItem('smb-leads')||'[]');
-function paint() { document.getElementById('leads').textContent = leads.map(l=>l.n+' — '+l.need).join('\n')||'None yet'; }
-function saveLead() { leads.push({n:lead.value, need:need.value}); localStorage.setItem('smb-leads', JSON.stringify(leads)); paint(); }
-paint();
-</script>
-</main>
-<script>
-const nav = document.getElementById('nav');
-const sections = [...document.querySelectorAll('main section')];
-sections.forEach((s,i) => {
-  const b = document.createElement('button');
-  b.textContent = s.dataset.tab;
-  if(i===0) { b.classList.add('on'); s.classList.add('on'); }
-  b.onclick = () => {
-    sections.forEach(x => x.classList.remove('on'));
-    [...nav.children].forEach(x => x.classList.remove('on'));
-    s.classList.add('on'); b.classList.add('on');
-  };
-  nav.appendChild(b);
-});
-function dl(name, text, type='text/plain') {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([text], {type}));
-  a.download = name; a.click();
+const T=[
+["Neighborhood studio","Book a room, sell beats, take deposits."],
+["Cafe + retail","Menu, hours, catering lead form."],
+["Clinic front desk","Services, providers, request appointment."],
+["Trades contractor","Estimates, service area, job photos."],
+["Boutique agency","Case tiles, retainers, contact."],
+["Tutor / coach","Packages, calendar note, testimonials."],
+["Salon / barber","Artists, book, price list."],
+["Local nonprofit","Mission, donate, events."],
+["Indie label shop","Releases, mailing list, store."],
+["Professional service","Attorney, accountant, or advisor intake."]
+];
+const pick=document.getElementById("pick");
+T.forEach((t,i)=>{const o=document.createElement("option");o.value=i;o.textContent=(i+1)+". "+t[0];pick.appendChild(o);});
+function show(i){
+  document.getElementById("title").textContent=T[i][0];
+  document.getElementById("hero").innerHTML="<h2>"+T[i][0]+"</h2><p>"+T[i][1]+"</p><p>Pages: Home, Offer, Proof, Book, Contact. One app, template swap.</p>";
+  document.getElementById("list").innerHTML=T.map((t,j)=>`<div class="item ${j==i?"on":""}" data-i="${j}">${t[0]}</div>`).join("");
+  document.querySelectorAll(".item").forEach(el=>el.onclick=()=>show(+el.dataset.i));
 }
-</script>
-</body>
-</html>
+pick.onchange=()=>show(+pick.value);
+document.getElementById("vf").onchange=e=>{const f=e.target.files[0];if(f)document.getElementById("vid").src=URL.createObjectURL(f);};
+show(0);
+</script></body></html>
