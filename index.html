@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>G2P Small–Medium Suite</title>
+<title>AuraG2P Small–Medium Business Suite</title>
 <style>
-body{margin:0;font-family:system-ui;background:#f6f3ee;color:#1c1915}
-header{padding:18px 24px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #ddd}
-h1{margin:0;font-size:22px} select,button{padding:8px 10px}
-.wrap{display:grid;grid-template-columns:280px 1fr;min-height:80vh}
-aside{padding:12px;border-right:1px solid #ddd} .item{padding:10px;border:1px solid #e4e0d8;margin:6px 0;cursor:pointer;background:#fff}
-.item.on{border-color:#8a6a32}
-main{padding:22px} .hero{padding:28px;background:#fff;border:1px solid #e4e0d8}
-.player{width:100%;max-width:640px;background:#111}
+body{margin:0;background:#f7f5f0;color:#1a1a1a;font-family:system-ui}
+header{background:#fff;padding:16px 24px;border-bottom:1px solid #e0dcd0;display:flex;justify-content:space-between;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:24px}
+.card{background:#fff;border:1px solid #e0dcd0;border-radius:8px;padding:16px;cursor:pointer;transition:.2s}
+.card:hover{border-color:#c9a227;box-shadow:0 4px 12px #0001}
+.kpi{font-size:24px;font-weight:600;color:#c9a227}
+video{width:100%;background:#000;margin-top:12px}
 </style></head><body>
-<header><div><div>G2P · small to medium</div><h1 id="title">Studio shop</h1></div>
-<div><select id="pick"></select></div></header>
-<div class="wrap"><aside id="list"></aside><main><div class="hero" id="hero"></div>
-<video class="player" controls id="vid"></video>
-<p><input type="file" accept="video/*" id="vf"/> Explicit player: local file, native controls.</p>
-</main></div>
+<header><strong>AuraG2P Small–Medium Suite</strong><span>10 Best Templates</span></header>
+<div class="grid" id="cards"></div>
+<div style="padding:24px"><h3>Explicit Video Player</h3><video controls id="vid"></video><input type="file" accept="video/*" onchange="document.getElementById('vid').src=URL.createObjectURL(this.files[0])"></div>
 <script>
-const T=[
-["Neighborhood studio","Book a room, sell beats, take deposits."],
-["Cafe + retail","Menu, hours, catering lead form."],
-["Clinic front desk","Services, providers, request appointment."],
-["Trades contractor","Estimates, service area, job photos."],
-["Boutique agency","Case tiles, retainers, contact."],
-["Tutor / coach","Packages, calendar note, testimonials."],
-["Salon / barber","Artists, book, price list."],
-["Local nonprofit","Mission, donate, events."],
-["Indie label shop","Releases, mailing list, store."],
-["Professional service","Attorney, accountant, or advisor intake."]
+const templates = [
+  ["Local Service Business","Plumber, electrician, cleaner — booking + trust"],
+  ["Freelancer / Consultant","Portfolio, packages, calendar"],
+  ["Small Retail / Boutique","Products, inventory light, story"],
+  ["Café / Restaurant","Menu, reservations, gallery"],
+  ["Health & Wellness","Practitioner, packages, testimonials"],
+  ["Creative Studio","Projects, process, contact"],
+  ["Professional Services","Law, accounting, real estate light"],
+  ["Education / Coaching","Courses, about, lead magnet"],
+  ["Home Services Group","Multi-service, service areas"],
+  ["Startup MVP","Landing + waitlist + simple app shell"]
 ];
-const pick=document.getElementById("pick");
-T.forEach((t,i)=>{const o=document.createElement("option");o.value=i;o.textContent=(i+1)+". "+t[0];pick.appendChild(o);});
-function show(i){
-  document.getElementById("title").textContent=T[i][0];
-  document.getElementById("hero").innerHTML="<h2>"+T[i][0]+"</h2><p>"+T[i][1]+"</p><p>Pages: Home, Offer, Proof, Book, Contact. One app, template swap.</p>";
-  document.getElementById("list").innerHTML=T.map((t,j)=>`<div class="item ${j==i?"on":""}" data-i="${j}">${t[0]}</div>`).join("");
-  document.querySelectorAll(".item").forEach(el=>el.onclick=()=>show(+el.dataset.i));
-}
-pick.onchange=()=>show(+pick.value);
-document.getElementById("vf").onchange=e=>{const f=e.target.files[0];if(f)document.getElementById("vid").src=URL.createObjectURL(f);};
-show(0);
-</script></body></html>
+document.getElementById('cards').innerHTML = templates.map((t,i)=>`<div class="card" onclick="alert('${t[1]}')"><div class="kpi">${i+1}</div><h3>${t[0]}</h3><p>${t[1]}</p></div>`).join('');
+</script>
+</body></html>
