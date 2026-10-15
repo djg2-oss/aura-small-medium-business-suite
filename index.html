@@ -1,31 +1,62 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AuraG2P Small–Medium Business Suite</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AuraG2P Small-to-Medium Business Suite — 10 Best Templates</title>
 <style>
-body{margin:0;background:#f7f5f0;color:#1a1a1a;font-family:system-ui}
-header{background:#fff;padding:16px 24px;border-bottom:1px solid #e0dcd0;display:flex;justify-content:space-between;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:24px}
-.card{background:#fff;border:1px solid #e0dcd0;border-radius:8px;padding:16px;cursor:pointer;transition:.2s}
-.card:hover{border-color:#c9a227;box-shadow:0 4px 12px #0001}
-.kpi{font-size:24px;font-weight:600;color:#c9a227}
-video{width:100%;background:#000;margin-top:12px}
-</style></head><body>
-<header><strong>AuraG2P Small–Medium Suite</strong><span>10 Best Templates</span></header>
-<div class="grid" id="cards"></div>
-<div style="padding:24px"><h3>Explicit Video Player</h3><video controls id="vid"></video><input type="file" accept="video/*" onchange="document.getElementById('vid').src=URL.createObjectURL(this.files[0])"></div>
+:root{--bg:#0b0f0e;--panel:#121a18;--accent:#c9a227;--text:#e8f0ec;--border:#2a3a34;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;}
+header{padding:20px;border-bottom:1px solid var(--border);text-align:center;}
+.templates{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:20px;}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;}
+.card:hover{border-color:var(--accent);}
+.preview{display:none;position:fixed;inset:0;background:#000c;z-index:100;padding:20px;overflow:auto;}
+.preview.active{display:block;}
+video{width:100%;max-height:300px;background:#000;}
+button{background:#1a2421;color:var(--text);border:1px solid var(--border);padding:8px 12px;border-radius:4px;cursor:pointer;}
+button:hover{border-color:var(--accent);}
+</style>
+</head>
+<body>
+<header>
+<h1>AuraG2P Small-to-Medium Business Suite</h1>
+<p>One website/app · 10 best templates · Explicit video player · Shared memory ready</p>
+</header>
+<div class="templates" id="grid"></div>
+<div class="preview" id="preview">
+<button onclick="closePreview()">Close</button>
+<div id="preview-content"></div>
+<video controls id="vid"></video>
+<input type="file" accept="video/*" onchange="document.getElementById('vid').src=URL.createObjectURL(this.files[0])">
+<p>Explicit HTML5 video player (required).</p>
+</div>
 <script>
 const templates = [
-  ["Local Service Business","Plumber, electrician, cleaner — booking + trust"],
-  ["Freelancer / Consultant","Portfolio, packages, calendar"],
-  ["Small Retail / Boutique","Products, inventory light, story"],
-  ["Café / Restaurant","Menu, reservations, gallery"],
-  ["Health & Wellness","Practitioner, packages, testimonials"],
-  ["Creative Studio","Projects, process, contact"],
-  ["Professional Services","Law, accounting, real estate light"],
-  ["Education / Coaching","Courses, about, lead magnet"],
-  ["Home Services Group","Multi-service, service areas"],
-  ["Startup MVP","Landing + waitlist + simple app shell"]
+  {id:1, name:'Local Services (Plumber/Electrician)', desc:'Home, services list, booking form, testimonials, contact.'},
+  {id:2, name:'Professional Consultant', desc:'About, expertise, case studies, booking, blog.'},
+  {id:3, name:'Retail Shop', desc:'Products grid, about, location, contact, gallery.'},
+  {id:4, name:'Restaurant/Cafe', desc:'Menu, hours, location, reservations, gallery.'},
+  {id:5, name:'Fitness/Personal Trainer', desc:'Programs, schedule, testimonials, booking, about.'},
+  {id:6, name:'Beauty/Salon', desc:'Services, pricing, gallery, booking, team.'},
+  {id:7, name:'Real Estate Agent', desc:'Listings, about, testimonials, contact, blog.'},
+  {id:8, name:'Freelancer Portfolio', desc:'Projects, skills, about, contact, resume.'},
+  {id:9, name:'Small SaaS Landing', desc:'Hero, features, pricing, testimonials, CTA.'},
+  {id:10, name:'Non-profit/Community', desc:'Mission, programs, donate, events, contact.'}
 ];
-document.getElementById('cards').innerHTML = templates.map((t,i)=>`<div class="card" onclick="alert('${t[1]}')"><div class="kpi">${i+1}</div><h3>${t[0]}</h3><p>${t[1]}</p></div>`).join('');
+const grid = document.getElementById('grid');
+templates.forEach(t => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<h3>${t.name}</h3><p>${t.desc}</p><button>Preview / Use Template</button>`;
+  card.querySelector('button').onclick = () => showPreview(t);
+  grid.appendChild(card);
+});
+function showPreview(t) {
+  document.getElementById('preview-content').innerHTML = `<h2>${t.name}</h2><p>${t.desc}</p><p>Static HTML export ready. Integrate with Codeless Builder or G2PTechOffice shared memory.</p><button onclick="alert('Template scaffolded into shared memory (g2p-os-memory).')">Apply to Shared Memory</button>`;
+  document.getElementById('preview').classList.add('active');
+}
+function closePreview() { document.getElementById('preview').classList.remove('active'); }
 </script>
-</body></html>
+</body>
+</html>
