@@ -22,7 +22,7 @@ button:hover{border-color:var(--accent);}
 <body>
 <header>
 <h1>AuraG2P Small-to-Medium Business Suite</h1>
-<p>One website/app · 10 best templates · Explicit video player · Shared g2p-os-memory ready · Elite static PWA</p>
+<p>One website/app · 10 best templates · Explicit video player · Shared g2p-os-memory · AuraXur OS ready · Elite static</p>
 </header>
 <div class="templates" id="grid"></div>
 <div class="preview" id="preview">
@@ -35,16 +35,16 @@ button:hover{border-color:var(--accent);}
 <script>
 const KEY = 'g2p-os-memory';
 const templates = [
-  {id:1, name:'Local Services (Plumber/Electrician/HVAC)', desc:'Hero + services list + booking form + testimonials + contact/map. High-conversion local SEO structure.', scaffold:'<!-- Local Services Template Scaffold -->\n<header>Services</header>\n<section>Services grid</section>\n<section>Booking CTA</section>'},
-  {id:2, name:'Professional Consultant / Coach', desc:'About + expertise areas + case studies + booking calendar + blog/resources.', scaffold:'<!-- Consultant Template -->\n<section>Expertise</section>\n<section>Case Studies</section>'},
-  {id:3, name:'Retail Shop / Boutique', desc:'Product grid + about + location/hours + contact + gallery/lightbox.', scaffold:'<!-- Retail Template -->\n<div class="products">Grid</div>'},
-  {id:4, name:'Restaurant / Cafe', desc:'Menu (text, not PDF) + hours + location + reservations + gallery.', scaffold:'<!-- Restaurant Template -->\n<section>Menu</section>\n<section>Hours & Location</section>'},
-  {id:5, name:'Fitness / Personal Trainer', desc:'Programs + schedule + testimonials + booking + about/trainer bio.', scaffold:'<!-- Fitness Template -->\n<section>Programs</section>'},
-  {id:6, name:'Beauty / Salon / Spa', desc:'Services + pricing + gallery + booking + team.', scaffold:'<!-- Salon Template -->\n<section>Services & Pricing</section>'},
-  {id:7, name:'Real Estate Agent', desc:'Listings grid + about + testimonials + contact + blog/market updates.', scaffold:'<!-- Real Estate Template -->\n<section>Listings</section>'},
-  {id:8, name:'Freelancer / Portfolio', desc:'Projects showcase + skills + about + contact + resume download.', scaffold:'<!-- Portfolio Template -->\n<section>Projects</section>'},
-  {id:9, name:'Small SaaS / App Landing', desc:'Hero + features + pricing + testimonials + strong CTA.', scaffold:'<!-- SaaS Landing -->\n<section>Features</section>\n<section>Pricing</section>'},
-  {id:10, name:'Non-profit / Community', desc:'Mission + programs + donate + events + contact/volunteer.', scaffold:'<!-- Non-profit Template -->\n<section>Mission</section>\n<section>Donate</section>'}
+  {id:1, name:'Local Services (Plumber/Electrician/HVAC)', desc:'Hero + services list + booking form + testimonials + contact/map. High-conversion local SEO structure.', scaffold:'<!-- Local Services -->\n<header>Hero with CTA</header>\n<section id="services">Service cards</section>\n<section id="booking">Booking form</section>\n<section id="testimonials">Reviews</section>'},
+  {id:2, name:'Professional Consultant / Coach', desc:'About + expertise areas + case studies + booking calendar + blog/resources.', scaffold:'<!-- Consultant -->\n<section>Expertise grid</section>\n<section>Case studies</section>\n<section>Calendar booking</section>'},
+  {id:3, name:'Retail Shop / Boutique', desc:'Product grid + about + location/hours + contact + gallery/lightbox.', scaffold:'<!-- Retail -->\n<div class="products">Product grid with filters</div>\n<section>About & Hours</section>'},
+  {id:4, name:'Restaurant / Cafe', desc:'Menu (text, not PDF) + hours + location + reservations + gallery.', scaffold:'<!-- Restaurant -->\n<section id="menu">Text menu</section>\n<section>Hours & Map</section>\n<section>Reservations</section>'},
+  {id:5, name:'Fitness / Personal Trainer', desc:'Programs + schedule + testimonials + booking + about/trainer bio.', scaffold:'<!-- Fitness -->\n<section>Programs</section>\n<section>Schedule</section>\n<section>Testimonials</section>'},
+  {id:6, name:'Beauty / Salon / Spa', desc:'Services + pricing + gallery + booking + team.', scaffold:'<!-- Salon -->\n<section>Services & Pricing</section>\n<section>Gallery</section>\n<section>Team & Booking</section>'},
+  {id:7, name:'Real Estate Agent', desc:'Listings grid + about + testimonials + contact + blog/market updates.', scaffold:'<!-- Real Estate -->\n<section>Listings grid</section>\n<section>About & Contact</section>'},
+  {id:8, name:'Freelancer / Portfolio', desc:'Projects showcase + skills + about + contact + resume download.', scaffold:'<!-- Portfolio -->\n<section>Projects showcase</section>\n<section>Skills & About</section>'},
+  {id:9, name:'Small SaaS / App Landing', desc:'Hero + features + pricing + testimonials + strong CTA.', scaffold:'<!-- SaaS -->\n<section>Hero</section>\n<section>Features</section>\n<section>Pricing table</section>'},
+  {id:10, name:'Non-profit / Community', desc:'Mission + programs + donate + events + contact/volunteer.', scaffold:'<!-- Non-profit -->\n<section>Mission</section>\n<section>Programs & Donate</section>\n<section>Events</section>'}
 ];
 function loadMem(){ try { return JSON.parse(localStorage.getItem(KEY)||'null')||{files:{},log:[]}; } catch(e){ return {files:{},log:[]}; } }
 function saveMem(m){ localStorage.setItem(KEY, JSON.stringify(m)); }
@@ -57,9 +57,8 @@ templates.forEach(t => {
   grid.appendChild(card);
 });
 function showPreview(t) {
-  const mem = loadMem();
   document.getElementById('preview-content').innerHTML = `<h2>${t.name}</h2><p>${t.desc}</p>
-    <p>Static HTML scaffold ready for Codeless Builder or G2PTechOffice. Integrates with shared memory.</p>
+    <p>Static HTML scaffold ready for Codeless Builder or G2PTechOffice. Shared memory + AuraXur OS.</p>
     <div class="scaffold">${t.scaffold}</div>
     <button onclick="applyTemplate('${t.id}')">Apply Scaffold to Shared Memory</button>`;
   document.getElementById('preview').classList.add('active');
@@ -67,9 +66,9 @@ function showPreview(t) {
 function applyTemplate(id){
   const mem = loadMem();
   mem.files['/templates/small-medium/'+id] = {type:'file', body: templates.find(x=>x.id==id).scaffold, applied: new Date().toISOString()};
-  mem.log.unshift(new Date().toISOString().slice(11,19)+' Applied template '+id);
+  mem.log.unshift(new Date().toISOString() + ' Applied SM template '+id);
   saveMem(mem);
-  alert('Template scaffolded into shared g2p-os-memory. Ready for export or office ops.');
+  alert('Template scaffolded into shared g2p-os-memory. Ready for elite ops.');
 }
 function closePreview() { document.getElementById('preview').classList.remove('active'); }
 </script>
