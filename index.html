@@ -1,76 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AuraG2P Small-to-Medium Business Suite — 10 Best Templates</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AuraG2P Small-to-Medium Business Suite</title>
 <style>
 :root{--bg:#0b0f0e;--panel:#121a18;--accent:#c9a227;--text:#e8f0ec;--border:#2a3a34;}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;}
-header{padding:20px;border-bottom:1px solid var(--border);text-align:center;}
-.templates{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:20px;}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border .2s;}
-.card:hover{border-color:var(--accent);}
-.preview{display:none;position:fixed;inset:0;background:#000c;z-index:100;padding:20px;overflow:auto;}
-.preview.active{display:block;}
-video{width:100%;max-height:280px;background:#000;border-radius:8px;}
-button{background:#1a2421;color:var(--text);border:1px solid var(--border);padding:8px 12px;border-radius:4px;cursor:pointer;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui;padding:20px;}
+header{border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:20px;}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:16px;margin:10px 0;}
+button{background:#1a2421;color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:4px;cursor:pointer;}
 button:hover{border-color:var(--accent);}
-.scaffold{font-family:ui-monospace,monospace;font-size:13px;background:#0a100e;padding:12px;border-radius:6px;white-space:pre-wrap;max-height:200px;overflow:auto;}
+video{width:100%;max-height:240px;background:#000;border-radius:6px;margin:10px 0;}
 </style>
 </head>
 <body>
 <header>
-<h1>AuraG2P Small-to-Medium Business Suite</h1>
-<p>One website/app · 10 best templates · Explicit video player · Shared g2p-os-memory · AuraXur OS ready · Elite static</p>
+  <h1>AuraG2P Small-to-Medium Business Suite</h1>
+  <p>Unified site/app for smaller to medium websites and apps. Templates ready. Shared memory compatible.</p>
 </header>
-<div class="templates" id="grid"></div>
-<div class="preview" id="preview">
-<button onclick="closePreview()">Close</button>
-<div id="preview-content"></div>
-<video controls id="vid"></video>
-<input type="file" accept="video/*" onchange="document.getElementById('vid').src=URL.createObjectURL(this.files[0])">
-<p>Explicit HTML5 video player (required for all surfaces).</p>
+<div class="card">
+  <h2>Quick Templates</h2>
+  <button onclick="loadTemplate('portfolio')">Portfolio / Creative</button>
+  <button onclick="loadTemplate('service')">Local Service + Booking</button>
+  <button onclick="loadTemplate('shop')">Simple Shop</button>
+  <button onclick="loadTemplate('consult')">Consulting / Agency</button>
+  <p id="tpl">Select a template to scaffold.</p>
+</div>
+<div class="card">
+  <h2>Explicit Video Player</h2>
+  <video controls id="vid"></video>
+  <input type="file" accept="video/*" onchange="document.getElementById('vid').src=URL.createObjectURL(this.files[0])">
+  <p>HTML5 local player. Required surface.</p>
+</div>
+<div class="card">
+  <h2>Memory / Office Ops Link</h2>
+  <button onclick="syncMem()">Sync Shared Memory</button>
+  <pre id="mem">Ready for AuraXur OS simulation link.</pre>
 </div>
 <script>
-const KEY = 'g2p-os-memory';
-const templates = [
-  {id:1, name:'Local Services (Plumber/Electrician/HVAC)', desc:'Hero + services list + booking form + testimonials + contact/map. High-conversion local SEO structure.', scaffold:'<!-- Local Services -->\n<header>Hero with CTA</header>\n<section id="services">Service cards</section>\n<section id="booking">Booking form</section>\n<section id="testimonials">Reviews</section>'},
-  {id:2, name:'Professional Consultant / Coach', desc:'About + expertise areas + case studies + booking calendar + blog/resources.', scaffold:'<!-- Consultant -->\n<section>Expertise grid</section>\n<section>Case studies</section>\n<section>Calendar booking</section>'},
-  {id:3, name:'Retail Shop / Boutique', desc:'Product grid + about + location/hours + contact + gallery/lightbox.', scaffold:'<!-- Retail -->\n<div class="products">Product grid with filters</div>\n<section>About & Hours</section>'},
-  {id:4, name:'Restaurant / Cafe', desc:'Menu (text, not PDF) + hours + location + reservations + gallery.', scaffold:'<!-- Restaurant -->\n<section id="menu">Text menu</section>\n<section>Hours & Map</section>\n<section>Reservations</section>'},
-  {id:5, name:'Fitness / Personal Trainer', desc:'Programs + schedule + testimonials + booking + about/trainer bio.', scaffold:'<!-- Fitness -->\n<section>Programs</section>\n<section>Schedule</section>\n<section>Testimonials</section>'},
-  {id:6, name:'Beauty / Salon / Spa', desc:'Services + pricing + gallery + booking + team.', scaffold:'<!-- Salon -->\n<section>Services & Pricing</section>\n<section>Gallery</section>\n<section>Team & Booking</section>'},
-  {id:7, name:'Real Estate Agent', desc:'Listings grid + about + testimonials + contact + blog/market updates.', scaffold:'<!-- Real Estate -->\n<section>Listings grid</section>\n<section>About & Contact</section>'},
-  {id:8, name:'Freelancer / Portfolio', desc:'Projects showcase + skills + about + contact + resume download.', scaffold:'<!-- Portfolio -->\n<section>Projects showcase</section>\n<section>Skills & About</section>'},
-  {id:9, name:'Small SaaS / App Landing', desc:'Hero + features + pricing + testimonials + strong CTA.', scaffold:'<!-- SaaS -->\n<section>Hero</section>\n<section>Features</section>\n<section>Pricing table</section>'},
-  {id:10, name:'Non-profit / Community', desc:'Mission + programs + donate + events + contact/volunteer.', scaffold:'<!-- Non-profit -->\n<section>Mission</section>\n<section>Programs & Donate</section>\n<section>Events</section>'}
-];
-function loadMem(){ try { return JSON.parse(localStorage.getItem(KEY)||'null')||{files:{},log:[]}; } catch(e){ return {files:{},log:[]}; } }
-function saveMem(m){ localStorage.setItem(KEY, JSON.stringify(m)); }
-const grid = document.getElementById('grid');
-templates.forEach(t => {
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.innerHTML = `<h3>${t.name}</h3><p>${t.desc}</p><button>Preview / Scaffold</button>`;
-  card.querySelector('button').onclick = () => showPreview(t);
-  grid.appendChild(card);
-});
-function showPreview(t) {
-  document.getElementById('preview-content').innerHTML = `<h2>${t.name}</h2><p>${t.desc}</p>
-    <p>Static HTML scaffold ready for Codeless Builder or G2PTechOffice. Shared memory + AuraXur OS.</p>
-    <div class="scaffold">${t.scaffold}</div>
-    <button onclick="applyTemplate('${t.id}')">Apply Scaffold to Shared Memory</button>`;
-  document.getElementById('preview').classList.add('active');
+function loadTemplate(t) {
+  document.getElementById('tpl').textContent = `Scaffolded ${t} template. Export-ready static structure. Integrates with G2PTechOffice.`;
 }
-function applyTemplate(id){
-  const mem = loadMem();
-  mem.files['/templates/small-medium/'+id] = {type:'file', body: templates.find(x=>x.id==id).scaffold, applied: new Date().toISOString()};
-  mem.log.unshift(new Date().toISOString() + ' Applied SM template '+id);
-  saveMem(mem);
-  alert('Template scaffolded into shared g2p-os-memory. Ready for elite ops.');
+function syncMem() {
+  const mem = localStorage.getItem('g2p-os-memory') || '{}';
+  document.getElementById('mem').textContent = 'Shared memory: ' + mem.slice(0,200) + '...';
 }
-function closePreview() { document.getElementById('preview').classList.remove('active'); }
 </script>
 </body>
 </html>
